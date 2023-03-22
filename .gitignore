@@ -11,7 +11,13 @@ target/
 *.iws
 *.iml
 *.ipr
-
+.idea
+.mvn
+allure-results
+browsers.json
+mvnw.cmd
+mvnw
+.gitignore
 ### Eclipse ###
 .apt_generated
 .classpath
