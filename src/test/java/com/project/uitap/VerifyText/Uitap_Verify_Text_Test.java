@@ -1,11 +1,10 @@
-package com.project.uitap.TextInput;
+package com.project.uitap.VerifyText;
 
-import com.project.uitap.loaddelay.Uitap_Load_Delay;
+import com.project.uitap.TextInput.Uitap_Text_Input;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -13,15 +12,15 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import static com.project.uitap.credential.credentials.NameButton;
-import static com.project.uitap.credential.link_pages.Main_URL;
 import static com.project.uitap.credential.link_pages.Text_input;
+import static com.project.uitap.credential.link_pages.Verifytext;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class Uitap_Text_Input_Test {
+public class Uitap_Verify_Text_Test {
 
     private WebDriver driver;
-    private Uitap_Text_Input uitapTextInput;
+    private Uitap_Verify_text uitapVerifyText;
 
     @BeforeEach
 
@@ -33,10 +32,10 @@ public class Uitap_Text_Input_Test {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().timeouts().pageLoadTimeout(10000, TimeUnit.MILLISECONDS);
         System.setProperty("webdriver.http.factory", "jdk-http-client");
-        driver.get(Text_input);
+        driver.get(Verifytext);
 
 
-        uitapTextInput = new Uitap_Text_Input(driver);
+        uitapVerifyText = new Uitap_Verify_text(driver);
     }
 
     @AfterEach
@@ -45,10 +44,8 @@ public class Uitap_Text_Input_Test {
     }
 
     @Test
-    public void uitapInputText_test() {
-        uitapTextInput.buttonUpdating.click();
-        String nameButtonNew = uitapTextInput.buttonUpdating.getText();
-        System.out.println(nameButtonNew);
-        assertEquals(nameButtonNew, NameButton);
+    public void Verify_text_test() {
+        String Welcome_text = uitapVerifyText.WelcomeText.getText();
+        System.out.println("Element with text: " + Welcome_text);
     }
 }
